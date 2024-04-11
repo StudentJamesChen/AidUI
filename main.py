@@ -5,7 +5,7 @@ import spatial_analysis.proximity_analysis.proximity_analysis as proximity_analy
 import spatial_analysis.size_analysis.size_analysis as size_analysis
 import object_detection.object_detection as object_detection
 import dp_resolver.resolver as resolver
-# import evaluation.evaluation as evaluation
+import evaluation.evaluation as evaluation
 from config import *
 import utils.utils as utils
 
@@ -63,11 +63,11 @@ for i in range(len(ocr_files)):
     dp_predictions_segments.append(dp_predicted["segments"]) # dp_predicted["segments"] is an array of segment objects
 
     # print("------------dp ground truth-----------")
-    # dp_ground_truth = evaluation.get_dp_ground_truth(image_file)
-    # dp_expectations_labels.append(dp_ground_truth["labels"])
-    # dp_expectations_bin.append(dp_ground_truth["labels_binarization"])
-    # dp_expectations_segments.append(dp_ground_truth["segments"])
-    # types.append(dp_ground_truth["type"])
+    dp_ground_truth = evaluation.get_dp_ground_truth(image_file)
+    dp_expectations_labels.append(dp_ground_truth["labels"])
+    dp_expectations_bin.append(dp_ground_truth["labels_binarization"])
+    dp_expectations_segments.append(dp_ground_truth["segments"])
+    types.append(dp_ground_truth["type"])
 
     # print("------------predicted and ground truth labels-----------")
     # print("dp_predicted[labels]", dp_predicted["labels"])
@@ -92,7 +92,7 @@ for i in range(len(ocr_files)):
 # evaluation
 # tp_fp_matrix = evaluation.set_tp_fp_matrix(dp_predictions_bin, dp_expectations_bin)
 # evaluation.print_tp_fp_matrix(tp_fp_matrix)
-# evaluation.evaluate(dp_predictions_bin, dp_expectations_bin, dp_predictions_segments, dp_expectations_segments, dp_predictions_labels, dp_expectations_labels, types, score_threshold_value)
+evaluation.evaluate(dp_predictions_bin, dp_expectations_bin, dp_predictions_segments, dp_expectations_segments, dp_predictions_labels, dp_expectations_labels, types, score_threshold_value)
 
 #####################################################################################################################################################
 ################################# DEBUGGING #########################################################################################################
