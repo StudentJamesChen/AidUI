@@ -39,10 +39,10 @@ def set_dp_ground_truth(annotation_file, type, ground_truth_info):
     f.close()
 
 def set_evaluation_data():
-    evaluation_mobile_dataset_annotation = "./evaluation/evaluation_dataset/mobile/result.json"
+    # evaluation_mobile_dataset_annotation = "./evaluation/evaluation_dataset/mobile/result.json"
     evaluation_web_dataset_annotation = "./evaluation/evaluation_dataset/web/result.json"
     ground_truth_info = {}
-    set_dp_ground_truth(evaluation_mobile_dataset_annotation, "mobile", ground_truth_info)
+    # set_dp_ground_truth(evaluation_mobile_dataset_annotation, "mobile", ground_truth_info)
     set_dp_ground_truth(evaluation_web_dataset_annotation, "web", ground_truth_info)
     # utils.print_dictionary(ground_truth_info, "ground_truth_info")
     # print(len(ground_truth_info))
